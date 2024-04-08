@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "719b5db0-af5e-4a54-8275-385c006c8692",
+		"name": "assignment4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20696029"
+	},
+	"item": [
+		{
+			"name": "get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status Code Test\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response Time Test\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"// Response Body Test\r",
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.have.jsonBody();\r",
+							"});\r",
+							"\r",
+							"// Content Type Test\r",
+							"pm.test(\"Content type is JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"// Response Schema Test\r",
+							"pm.test(\"Response has the correct schema\", function () {\r",
+							"    pm.response.to.have.jsonSchema({\r",
+							"        type: \"array\",\r",
+							"        items: {\r",
+							"            type: \"object\",\r",
+							"            properties: {\r",
+							"                userId: { type: \"number\" },\r",
+							"                id: { type: \"number\" },\r",
+							"                title: { type: \"string\" },\r",
+							"                body: { type: \"string\" }\r",
+							"            },\r",
+							"            required: [\"userId\", \"id\", \"title\", \"body\"]\r",
+							"        }\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{json url}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "get 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status Code Test\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response Time Test\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"// Response Body Test\r",
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.have.jsonBody();\r",
+							"});\r",
+							"\r",
+							"// Content Type Test\r",
+							"pm.test(\"Content type is JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"// Response Data Test\r",
+							"pm.test(\"Response contains data\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"data\");\r",
+							"});\r",
+							"\r",
+							"// Response Support Test\r",
+							"pm.test(\"Response contains support info\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"support\");\r",
+							"});\r",
+							"\r",
+							"// Pagination Test\r",
+							"pm.test(\"Response contains pagination info\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"page\");\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"per_page\");\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"total\");\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"total_pages\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{data}}/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "get 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status Code Test\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Response Time Test\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"// Response Body Test\r",
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.response.to.have.jsonBody();\r",
+							"});\r",
+							"\r",
+							"// Content Type Test\r",
+							"pm.test(\"Content type is JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"});\r",
+							"\r",
+							"// Response Contains Value Test\r",
+							"pm.test(\"Response contains joke value\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"value\");\r",
+							"    pm.expect(pm.response.json().value).to.not.be.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{base}}/jokes/random"
+			},
+			"response": []
+		},
+		{
+			"name": "post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status Code Test for POST /posts\r",
+							"pm.test(\"Status code for POST /posts is 201 Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Response Body Test for POST /posts\r",
+							"pm.test(\"Response body for POST /posts is not empty\", function () {\r",
+							"    pm.response.to.have.jsonBody();\r",
+							"});\r",
+							"\r",
+							"// Content Type Test for POST /posts\r",
+							"pm.test(\"Content type for POST /posts is JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"// Response Data Test for POST /posts\r",
+							"pm.test(\"Response for POST /posts contains ID\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"id\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"My New Post\",\r\n  \"body\": \"This is the content of my new post.\",\r\n  \"userId\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base url}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "post 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status Code Test for POST /posts\r",
+							"pm.test(\"Status code for POST /posts is 201 Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Response Body Test for POST /posts\r",
+							"pm.test(\"Response body for POST /posts is not empty\", function () {\r",
+							"    pm.response.to.have.jsonBody();\r",
+							"});\r",
+							"\r",
+							"// Content Type Test for POST /posts\r",
+							"pm.test(\"Content type for POST /posts is JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"// Response Data Test for POST /posts\r",
+							"pm.test(\"Response for POST /posts contains expected data\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData.title).to.eql(\"My Post 1\");\r",
+							"    pm.expect(jsonData.body).to.eql(\"This is the content of my first post.\");\r",
+							"    pm.expect(jsonData.userId).to.eql(2);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"My Post 1\",\r\n  \"body\": \"This is the content of my first post.\",\r\n  \"userId\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base post }}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "post 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Status Code Test for POST /posts\r",
+							"pm.test(\"Status code for POST /posts is 201 Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Response Body Test for POST /posts\r",
+							"pm.test(\"Response body for POST /posts is not empty\", function () {\r",
+							"    pm.response.to.have.jsonBody();\r",
+							"});\r",
+							"\r",
+							"// Content Type Test for POST /posts\r",
+							"pm.test(\"Content type for POST /posts is JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"// Response Data Test for POST /posts\r",
+							"pm.test(\"Response for POST /posts contains expected data\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"    pm.expect(jsonData.title).to.eql(\"My Post 2\");\r",
+							"    pm.expect(jsonData.body).to.eql(\"This is the content of my second post.\");\r",
+							"    pm.expect(jsonData.userId).to.eql(3);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"My Post 2\",\r\n  \"body\": \"This is the content of my second post.\",\r\n  \"userId\": 3\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base 3}}/posts"
+			},
+			"response": []
+		}
+	]
+}
